@@ -19,8 +19,8 @@ Aplicativo focado na usabilidade e eficiência para o cadastro, leitura e gerenc
 - [x] Motor de Banco de Dados local configurado.
 - [x] Inserção de novos Ativos via formulário validado.
 - [x] Interface gráfica corporativa e responsiva.
-- [ ] Listagem de Ativos Cadastrados (Sprint 3).
-- [ ] Remoção e Atualização de Status (Sprint 3).
+- [x] Listagem de Ativos Cadastrados (Sprint 3).
+- [x] Remoção e Atualização de Status (Sprint 3).
 
 ## 👨‍💻 Equipe
 * **André** - Tech Lead / Engenheiro Backend
