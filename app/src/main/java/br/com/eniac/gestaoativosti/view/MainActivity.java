@@ -1,5 +1,6 @@
 package br.com.eniac.gestaoativosti.view;
 
+import android.content.Intent; // Importação necessária para a navegação
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         ativoDAO = new AtivoDAO(this);
 
@@ -44,18 +49,22 @@ public class MainActivity extends AppCompatActivity {
         try {
             double valor = Double.parseDouble(valorString);
 
-            Ativo novoAtivo = new Ativo(0, nome, tipo, "23/02/2026", valor, "Ativo");
+            Ativo novoAtivo = new Ativo(0, nome, tipo, "01/04/2026", valor, "Ativo");
 
             ativoDAO.salvar(novoAtivo);
 
-            Toast.makeText(this, "Salvo com sucesso no SQLite!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Salvo com sucesso no SQLite!", Toast.LENGTH_SHORT).show();
+
             editNome.setText("");
             editTipo.setText("");
             editValor.setText("");
             editNome.requestFocus();
 
+            Intent intent = new Intent(MainActivity.this, ListagemActivity.class);
+            startActivity(intent);
+
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Erro no formato do valor", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Erro no formato do valor numérico", Toast.LENGTH_SHORT).show();
         }
     }
 }
